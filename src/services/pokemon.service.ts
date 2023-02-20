@@ -6,6 +6,7 @@ export const getPokemonService = async (id: number) => {
   const { data } = await axios.get<Pokemon>(
     `https://pokeapi.co/api/v2/pokemon/${id}`
   );
+  
   return data;
 };
 
@@ -14,5 +15,12 @@ export const getPokemonsService = async () => {
     "https://pokeapi.co/api/v2/pokemon"
   );
 
-  return data.results;
+  const promises = data.results.map(async (pokedex) => {
+    const { data } = await axios.get<Pokemon>(pokedex.url);
+    return data;
+  });
+
+  const result = await Promise.all(promises);
+
+  return result;
 };

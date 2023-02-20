@@ -1,25 +1,17 @@
 <script setup lang="ts">
-import { IonSearchbar, IonText } from '@ionic/vue'
-import { useField, defineRule } from 'vee-validate'
-import { required } from '@vee-validate/rules'
-defineRule('required', required)
-defineEmits(['update:modelValue'])
+  import { IonSearchbar } from "@ionic/vue";
+  import { ref } from "vue";
+  const props = defineProps<{
+    modelValue: string;
+    placeholder: string;
+  }>();
 
-const props = defineProps<{
-  modelValue: string
-  placeholder: string
-}>()
-
-const { value, errorMessage } = useField<string>('search', {
-  initialValue: props.modelValue,
-  rules: required,
-})
+  const search = ref(props.modelValue);
 </script>
 <template>
   <ion-searchbar
     :placeholder="placeholder"
-    v-model="value"
-    @input="$emit('update:modelValue', value)"
+    v-model="search"
+    @input="$emit('update:modelValue', search)"
   />
-  <ion-text>{{ errorMessage }}</ion-text>
 </template>

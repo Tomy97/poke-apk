@@ -1,17 +1,21 @@
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { defineStore } from "pinia";
 import { getPokemonsService } from "../services/pokemon.service";
-import { Result } from "../interfaces/pokedex.interface";
+import { Pokemon } from "@/interfaces/pokemon.interface";
 
 export const usePokeStore = defineStore("poke", () => {
-  const poke = ref<Result[]>([]);
+  const poke = ref<Pokemon[]>([]);
 
   const getPokemons = async () => {
-    const res = await getPokemonsService();
-    poke.value = res;
+    poke.value = await getPokemonsService();
   };
+
+  onMounted(() => {
+    getPokemons();
+  });
+
   return {
     poke,
-    getPokemons,
+    getPokemons
   };
 });

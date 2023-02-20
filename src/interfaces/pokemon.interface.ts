@@ -1,17 +1,17 @@
 export interface Pokemon {
   abilities: Ability[];
-  baseExperience: number;
+  base_experience: number;
   forms: Species[];
-  gameIndices: GameIndex[];
+  game_indices: GameIndex[];
   height: number;
   heldItems: any[];
   id: number;
-  isDefault: boolean;
-  locationAreaEncounters: string;
+  is_default: boolean;
+  location_area_encounters: string;
   moves: Move[];
   name: string;
   order: number;
-  pastTypes: any[];
+  past_types: any[];
   species: Species;
   sprites: Sprites;
   stats: Stat[];
@@ -21,7 +21,7 @@ export interface Pokemon {
 
 export interface Ability {
   ability: Species;
-  isHidden: boolean;
+  is_hidden: boolean;
   slot: number;
 }
 
@@ -31,28 +31,28 @@ export interface Species {
 }
 
 export interface GameIndex {
-  gameIndex: number;
+  game_index: number;
   version: Species;
 }
 
 export interface Move {
   move: Species;
-  versionGroupDetails: VersionGroupDetail[];
+  version_group_details: VersionGroupDetail[];
 }
 
 export interface VersionGroupDetail {
-  levelLearnedAt: number;
-  moveLearnMethod: Species;
-  versionGroup: Species;
+  level_learned_at: number;
+  move_learn_method: Species;
+  version_group: Species;
 }
 
 export interface GenerationV {
-  blackWhite: Sprites;
+  black_white: Sprites;
 }
 
 export interface GenerationIv {
-  diamondPearl: Sprites;
-  heartgoldSoulsilver: Sprites;
+  diamond_pearl: Sprites;
+  heartgold_soulsilver: Sprites;
   platinum: Sprites;
 }
 
@@ -68,31 +68,31 @@ export interface Versions {
 }
 
 export interface Sprites {
-  backDefault: string;
-  backFemale: null;
-  backShiny: string;
-  backShinyFemale: null;
-  frontDefault: string;
-  frontFemale: null;
-  frontShiny: string;
-  frontShinyFemale: null;
+  back_default: string;
+  back_female: null;
+  back_shiny: string;
+  back_shiny_female: null;
+  front_default: string;
+  front_female: null;
+  front_shiny: string;
+  front_shiny_female: null;
   other: Other;
   versions: Versions;
   animated: Sprites;
 }
 
 export interface GenerationI {
-  redBlue: RedBlue;
+  red_blue: RedBlue;
   yellow: RedBlue;
 }
 
 export interface RedBlue {
-  backDefault: string;
-  backGray: string;
-  backTransparent: string;
-  frontDefault: string;
-  frontGray: string;
-  frontTransparent: string;
+  back_default: string;
+  back_gray: string;
+  back_transparent: string;
+  front_default: string;
+  front_gray: string;
+  front_transparent: string;
 }
 
 export interface GenerationIi {
@@ -144,7 +144,7 @@ export interface GenerationVii {
 }
 
 export interface DreamWorld {
-  frontDefault: string;
+  front_default: string;
   frontFemale: null;
 }
 
@@ -153,13 +153,13 @@ export interface GenerationViii {
 }
 
 export interface Other {
-  dreamWorld: DreamWorld;
+  dream_world: DreamWorld;
   home: Home;
-  officialArtwork: OfficialArtwork;
+  official_artwork: OfficialArtwork;
 }
 
 export interface Stat {
-  baseStat: number;
+  base_stat: number;
   effort: number;
   stat: Species;
 }
