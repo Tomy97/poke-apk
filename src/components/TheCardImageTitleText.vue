@@ -69,6 +69,9 @@
     text-decoration: none;
     min-height: 100%;
   }
+  ion-card {
+    border-radius: 16px;
+  }
   ion-text h2 {
     font-family: "Readex Pro";
     font-style: normal;

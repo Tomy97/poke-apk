@@ -4,15 +4,15 @@ import { RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/home"
+    redirect: "/pokemon"
   },
   {
-    path: "/home",
+    path: "/pokemon",
     name: "Home",
-    component: () => import("@/views/HomePage.vue")
+    component: () => import("@/views/PokedexViews.vue")
   },
   {
-    path: "/detalle/:id",
+    path: "/pokemon/:id",
     name: "PokeDetails",
     component: () => import("@/views/PokemonDetailsViews.vue")
   }
