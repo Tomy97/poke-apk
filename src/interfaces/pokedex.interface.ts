@@ -1,8 +1,8 @@
 export interface Pokedex {
-  count?: number;
-  next?: string;
-  previous?: null;
-  results?: Result[];
+  count: number;
+  next: string;
+  previous: null;
+  results: Result[];
 }
 
 export interface Result {
