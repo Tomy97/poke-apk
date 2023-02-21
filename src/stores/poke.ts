@@ -1,16 +1,18 @@
-import { computed, ref } from "vue";
-import { defineStore } from "pinia";
+import { computed, ref } from 'vue';
+import { defineStore } from 'pinia';
 import {
   getPokemonsService,
-  getPokemonByIdService
-} from "../services/pokemon.service";
-import { Pokemon } from "@/interfaces/pokemon.interface";
+  getPokemonByIdService,
+} from '../services/pokemon.service';
+import type { Pokemon } from '@/interfaces/pokemon.interface';
 
-export const usePokeStore = defineStore("poke", () => {
+export const usePokeStore = defineStore('poke', () => {
   const pokemons = ref<Pokemon[]>([]);
-  const search = ref<string>("");
+  const search = ref<string>('');
+  const pokemon = ref<Pokemon | null>(null);
+
   const filteredPokemons = computed(() => {
-    if (!search.value) {
+    if (search.value === '') {
       return pokemons.value;
     }
     return pokemons.value.filter((pokemon) => {
@@ -22,8 +24,7 @@ export const usePokeStore = defineStore("poke", () => {
     pokemons.value = await getPokemonsService();
   };
   const getPokemonById = async (id: number) => {
-    const pokemon = await getPokemonByIdService(id);
-    return pokemon;
+    pokemon.value = await getPokemonByIdService(id);
   };
   const handlePokemonFilter = (newSearch: string) => {
     search.value = newSearch;
@@ -32,9 +33,10 @@ export const usePokeStore = defineStore("poke", () => {
   return {
     pokemons,
     search,
+    pokemon,
     filteredPokemons,
     getPokemons,
     getPokemonById,
-    handlePokemonFilter
+    handlePokemonFilter,
   };
 });

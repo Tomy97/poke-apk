@@ -1,7 +1,0 @@
-{
-  "name": "poke-app",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}

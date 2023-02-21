@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Pokedex } from "./../interfaces/pokedex.interface";
-import { Pokemon } from "./../interfaces/pokemon.interface";
+import type { Pokedex } from "../interfaces/pokedex.interface";
+import type{ Pokemon } from "../interfaces/pokemon.interface";
 
 export const getPokemonByIdService = async (id: number) => {
   const { data } = await axios.get<Pokemon>(

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-  import { Pokemon } from "@/interfaces/pokemon.interface";
-  import {
-    IonCard,
-    IonCardContent,
-    IonChip,
-    IonText,
-    IonRow,
-    IonGrid,
-    IonCol
-  } from "@ionic/vue";
+import type { Pokemon } from "@/interfaces/pokemon.interface";
+import {
+  IonCard,
+  IonCardContent,
+  IonChip,
+  IonText,
+  IonRow,
+  IonGrid,
+  IonCol,
+} from "@ionic/vue";
 
-  defineProps<{
-    pokemon: Pokemon;
-  }>();
+defineProps<{
+  pokemon: Pokemon;
+}>();
 </script>
 
 <template>
@@ -65,53 +65,53 @@
   </router-link>
 </template>
 <style scoped>
-  .card-link {
-    text-decoration: none;
-    min-height: 100%;
-  }
-  ion-card {
-    border-radius: 16px;
-  }
-  ion-text h2 {
-    font-family: "Readex Pro";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 28px;
-    color: #3b3b3b;
-    text-transform: capitalize;
-  }
+.card-link {
+  text-decoration: none;
+  min-height: 100%;
+}
+ion-card {
+  border-radius: 16px;
+}
+ion-text h2 {
+  font-family: "Readex Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3b3b3b;
+  text-transform: capitalize;
+}
 
-  ion-text span {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #8d91a5;
-  }
-  .card-img {
-    background-color: #ececf2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-  .card-img img {
-    width: 164px;
-    height: 173px;
-    object-fit: contain;
-  }
-  .span-text {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    color: #8d91a5;
-    margin-right: 0.25rem;
-  }
-  .stat-style {
-    color: #55596d;
-  }
+ion-text span {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #8d91a5;
+}
+.card-img {
+  background-color: #ececf2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.card-img img {
+  width: 164px;
+  height: 173px;
+  object-fit: contain;
+}
+.span-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #8d91a5;
+  margin-right: 0.25rem;
+}
+.stat-style {
+  color: #55596d;
+}
 </style>

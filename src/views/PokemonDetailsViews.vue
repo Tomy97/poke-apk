@@ -1,18 +1,22 @@
 <script setup lang="ts">
-  import { usePokeStore } from "@/store/poke";
-  import { onMounted } from "vue";
-  import { useRoute } from "vue-router";
+import { IonPage, IonContent } from '@ionic/vue';
+import { usePokeStore } from '@/stores/poke';
+import { onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
-  const route = useRoute();
-  console.log(route.params.id);
+const route = useRoute();
+const pokeStore = usePokeStore();
+const { pokemon } = storeToRefs(usePokeStore());
 
-  const { getPokemonById } = usePokeStore();
-
-  onMounted(() => {
-    getPokemonById(Number(route.params.id));
-  });
-  // const pokemon = getPokemonById(router.params.id)
+onMounted(() => {
+  pokeStore.getPokemonById(route.params.id);
+});
 </script>
 <template>
-  <div></div>
+  <ion-page>
+    <ion-content>
+        
+    </ion-content>
+  </ion-page>
 </template>

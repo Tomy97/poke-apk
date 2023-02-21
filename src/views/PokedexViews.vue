@@ -1,26 +1,26 @@
 <script setup lang="ts">
-  import { onMounted, watchEffect } from "vue";
-  import {
-    IonContent,
-    IonPage,
-    IonCol,
-    IonGrid,
-    IonRow,
-    IonIcon,
-    IonTitle
-  } from "@ionic/vue";
-  import FormInputSearch from "../components/form/FormInputSearch.vue";
-  import TheCardImageTitleText from "@/components/TheCardImageTitleText.vue";
-  import { usePokeStore } from "@/store/poke";
-  import { optionsOutline } from "ionicons/icons";
+import { onMounted, watchEffect } from 'vue';
+import {
+  IonContent,
+  IonPage,
+  IonCol,
+  IonGrid,
+  IonRow,
+  IonIcon,
+  IonTitle,
+} from '@ionic/vue';
+import FormInputSearch from '../components/form/FormInputSearch.vue';
+import TheCardImageTitleText from '@/components/TheCardImageTitleText.vue';
+import { usePokeStore } from '@/stores/poke';
+import { storeToRefs } from 'pinia';
 
-  const { search, filteredPokemons, getPokemons, handlePokemonFilter } =
-    usePokeStore();
-  onMounted(() => {
-    getPokemons();
-    handlePokemonFilter(search);
-  });
-  
+const pokeStore = usePokeStore();
+
+const { filteredPokemons } = storeToRefs(usePokeStore());
+
+onMounted(() => {
+  pokeStore.getPokemons();
+});
 </script>
 
 <template>
@@ -32,22 +32,17 @@
         </ion-col>
         <ion-row class="ion-align-items-center ion-justify-content-end">
           <ion-col size="12">
-            <FormInputSearch
-              placeholder="Busca un poquemon"
-              v-model="search"
-              @search-pokemon="handlePokemonFilter(search)"
-            />
+            <FormInputSearch placeholder="Busca un pokemon" />
           </ion-col>
         </ion-row>
-        {{ search }}
         <ion-row>
           <ion-col
             size="12"
             size-sm="6"
             size-md="6"
             size-lg="3"
-            v-for="(p, index) of filteredPokemons"
-            :key="index"
+            v-for="p of filteredPokemons"
+            :key="p.id"
           >
             <TheCardImageTitleText :pokemon="p" />
           </ion-col>

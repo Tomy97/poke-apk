@@ -1,14 +1,17 @@
 <script setup lang="ts">
-  import { IonSearchbar } from "@ionic/vue";
+import { usePokeStore } from "@/stores/poke";
+import { IonSearchbar } from "@ionic/vue";
 
-  defineEmits(["searchPokemon"]);
-  defineProps<{
-    placeholder: string;
-  }>();
+defineEmits(["searchPokemon"]);
+defineProps<{
+  placeholder: string;
+}>();
+
+const { handlePokemonFilter } = usePokeStore();
 </script>
 <template>
   <ion-searchbar
     :placeholder="placeholder"
-    @ionChange="() => $emit('searchPokemon')"
+    @keyup="handlePokemonFilter($event.target.value)"
   />
 </template>

@@ -1,9 +1,3 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./router";
-
-import { IonicVue } from "@ionic/vue";
-import { createPinia } from "pinia";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/vue/css/core.css";
 
@@ -20,10 +14,19 @@ import "@ionic/vue/css/text-transformation.css";
 import "@ionic/vue/css/flex-utils.css";
 import "@ionic/vue/css/display.css";
 
-/* Theme variables */
+/* Theme variables - copied from existing project */
 import "./theme/variables.css";
 
-const app = createApp(App).use(IonicVue).use(createPinia()).use(router);
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { IonicVue } from "@ionic/vue";
+import App from "./App.vue";
+import router from "./router";
+
+const app = createApp(App);
+app.use(IonicVue);
+app.use(createPinia());
+app.use(router);
 
 router.isReady().then(() => {
   app.mount("#app");
