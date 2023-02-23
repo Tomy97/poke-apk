@@ -54,7 +54,9 @@ onMounted(() => {
             <ion-row class="ion-text-center">
               <ion-col size="12">
                 <ion-title>
-                  <h1>#{{ pokemon?.id }} {{ pokemon?.name }}</h1>
+                  <h1 class="ion-text-capitalize">
+                    #{{ pokemon?.id }} {{ pokemon?.name }}
+                  </h1>
                 </ion-title>
               </ion-col>
               <ion-col size="6"> Weight {{ pokemon?.weight }} </ion-col>
@@ -75,9 +77,9 @@ onMounted(() => {
             <img :src="pokemon?.sprites.other.dream_world.front_default" />
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-title> Estadisticas </ion-title>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="10">
+            <ion-title> Statistics </ion-title>
           </ion-col>
         </ion-row>
         <ion-row class="ion-justify-content-center">
