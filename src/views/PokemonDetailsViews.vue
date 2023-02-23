@@ -10,14 +10,13 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  IonChip,
 } from '@ionic/vue';
 import { usePokeStore } from '@/stores/poke';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { storeToRefs } from 'pinia';
 import { arrowBackOutline } from 'ionicons/icons';
-import { computed } from '@vue/reactivity';
+import AppChipPill from '../components/AppChipPill.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -58,15 +57,17 @@ onMounted(() => {
                   <h1>#{{ pokemon?.id }} {{ pokemon?.name }}</h1>
                 </ion-title>
               </ion-col>
-              <ion-col size="6"> peso {{ pokemon?.weight }} </ion-col>
-              <ion-col size="6"> altura {{ pokemon?.height }} </ion-col>
+              <ion-col size="6"> Weight {{ pokemon?.weight }} </ion-col>
+              <ion-col size="6"> Height {{ pokemon?.height }} </ion-col>
               <ion-col size="12">
-                <ion-title> Tipos </ion-title>
+                <ion-title> Types </ion-title>
               </ion-col>
-              <ion-col size="6" v-for="p of getPokemonTypes">
-                <ion-chip>
-                  {{ p }}
-                </ion-chip>
+              <ion-col
+                size="6"
+                v-for="(p, index) of getPokemonTypes"
+                :key="index"
+              >
+                <AppChipPill :type-name="p" />
               </ion-col>
             </ion-row>
           </ion-col>

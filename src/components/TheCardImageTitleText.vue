@@ -3,13 +3,12 @@ import type { Pokemon } from '@/interfaces/pokemon.interface';
 import {
   IonCard,
   IonCardContent,
-  IonChip,
   IonText,
   IonRow,
   IonGrid,
   IonCol,
 } from '@ionic/vue';
-
+import AppChipPill from '../components/AppChipPill.vue';
 defineProps<{
   pokemon: Pokemon;
 }>();
@@ -55,8 +54,14 @@ defineProps<{
                 </span>
               </ion-text>
             </ion-col>
-            <ion-col size="4" size-md="5" size-lg="4" v-for="p of pokemon.types" :key="p.slot">
-              <ion-chip>{{ p.type.name }}</ion-chip>
+            <ion-col
+              size="4"
+              size-md="5"
+              size-lg="4"
+              v-for="p of pokemon.types"
+              :key="p.slot"
+            >
+              <AppChipPill :type-name="p.type.name" />
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -73,7 +78,7 @@ ion-card {
   border-radius: 16px;
 }
 ion-text h2 {
-  font-family: "Readex Pro";
+  font-family: 'Readex Pro';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -83,7 +88,7 @@ ion-text h2 {
 }
 
 ion-text span {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -103,7 +108,7 @@ ion-text span {
   object-fit: contain;
 }
 .span-text {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
