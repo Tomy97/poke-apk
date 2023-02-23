@@ -16,7 +16,7 @@ export const usePokeStore = defineStore('poke', () => {
       return pokemons.value;
     }
     return pokemons.value.filter((pokemon) => {
-      return pokemon.name.includes(search.value);
+      return pokemon.name.toLowerCase().includes(search.value.toLowerCase());
     });
   });
 
