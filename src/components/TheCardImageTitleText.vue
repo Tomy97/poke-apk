@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Pokemon } from "@/interfaces/pokemon.interface";
+import type { Pokemon } from '@/interfaces/pokemon.interface';
 import {
   IonCard,
   IonCardContent,
@@ -8,7 +8,7 @@ import {
   IonRow,
   IonGrid,
   IonCol,
-} from "@ionic/vue";
+} from '@ionic/vue';
 
 defineProps<{
   pokemon: Pokemon;
@@ -55,7 +55,7 @@ defineProps<{
                 </span>
               </ion-text>
             </ion-col>
-            <ion-col size="2" v-for="p of pokemon.types" :key="p.slot">
+            <ion-col size="4" size-md="5" size-lg="4" v-for="p of pokemon.types" :key="p.slot">
               <ion-chip>{{ p.type.name }}</ion-chip>
             </ion-col>
           </ion-row>

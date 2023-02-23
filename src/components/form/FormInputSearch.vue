@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { usePokeStore } from "@/stores/poke";
-import { IonSearchbar } from "@ionic/vue";
+import { usePokeStore } from '@/stores/poke';
+import { IonSearchbar } from '@ionic/vue';
 
-defineEmits(["searchPokemon"]);
+defineEmits(['searchPokemon']);
 defineProps<{
   placeholder: string;
 }>();

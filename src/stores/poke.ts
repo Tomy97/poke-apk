@@ -9,7 +9,7 @@ import type { Pokemon } from '@/interfaces/pokemon.interface';
 export const usePokeStore = defineStore('poke', () => {
   const pokemons = ref<Pokemon[]>([]);
   const search = ref<string>('');
-  const pokemon = ref<Pokemon | null>(null);
+  const pokemon = ref<Pokemon>();
 
   const filteredPokemons = computed(() => {
     if (search.value === '') {
