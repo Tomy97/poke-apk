@@ -25,7 +25,7 @@ export const getPokemonsService = async () => {
   return result;
 };
 
-export const paginatorPokemonService = async (offset, limit) => {
+export const paginatorPokemonService = async (offset: number, limit: number) => {
   const { data } = await axios.get<Pokedex>(
     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
   );
