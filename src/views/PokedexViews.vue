@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from 'vue';
+import { onMounted } from 'vue';
 import {
   IonContent,
   IonPage,
   IonCol,
   IonGrid,
   IonRow,
-  IonIcon,
   IonTitle,
 } from '@ionic/vue';
 import FormInputSearch from '../components/form/FormInputSearch.vue';
